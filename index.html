@@ -31,12 +31,17 @@
       </nav>
 
       <div class="header__actions">
-        <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
-        <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
-          <span class="icon" aria-hidden="true">🌙</span>
-          <span class="hide-sm" data-i18n="nav.theme">Theme</span>
-        </button>
-        <button class="btn btn--primary" id="langToggle" type="button">English</button>
+        <!-- Desktop actions only -->
+        <div class="desktop-actions">
+          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
+          <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span class="icon" aria-hidden="true">🌙</span>
+            <span class="hide-sm" data-i18n="nav.theme">Theme</span>
+          </button>
+          <button class="btn btn--primary" id="langToggle" type="button">English</button>
+        </div>
+
+        <!-- Mobile only -->
         <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -46,6 +51,16 @@
     <!-- Mobile menu -->
     <div class="mobile" id="mobileMenu" aria-hidden="true">
       <div class="container mobile__inner">
+        <!-- Mobile actions -->
+        <div class="mobile-actions">
+          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
+          <button class="btn btn--ghost" id="themeToggleMobile" type="button">
+            <span class="icon" aria-hidden="true">🌙</span>
+            <span data-i18n="nav.theme">Theme</span>
+          </button>
+          <button class="btn btn--primary" id="langToggleMobile" type="button">English</button>
+        </div>
+
         <a href="#home" class="mobile__link" data-i18n="nav.home">الرئيسية</a>
         <a href="#about" class="mobile__link" data-i18n="nav.about">عنّي</a>
         <a href="#journey" class="mobile__link" data-i18n="nav.journey">رحلتي</a>
@@ -53,8 +68,8 @@
         <a href="#projects" class="mobile__link" data-i18n="nav.projects">المشاريع</a>
         <a href="#interests" class="mobile__link" data-i18n="nav.interests">اهتمامات</a>
         <a href="#contact" class="mobile__link" data-i18n="nav.contact">تواصل</a>
+
         <div class="mobile__row">
-          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
           <a class="btn btn--ghost" href="https://github.com/ill3bdullah" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn btn--ghost" href="https://linkedin.com/in/iabdullahalomran" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>

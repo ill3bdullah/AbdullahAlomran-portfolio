@@ -16,6 +16,7 @@ function toast(msg){
    Language (AR/EN)
 ========================= */
 const toggle = document.getElementById("langToggle");
+const langMobile = document.getElementById("langToggleMobile");
 let current = "ar";
 
 const dict = {
@@ -290,7 +291,9 @@ function applyLanguage(code){
   const t = dict[code];
   document.documentElement.lang = t.lang;
   document.documentElement.dir = t.dir;
+
   if (toggle) toggle.textContent = t.toggle;
+  if (langMobile) langMobile.textContent = t.toggle;
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
@@ -298,17 +301,17 @@ function applyLanguage(code){
   });
 }
 
-if (toggle){
-  toggle.addEventListener("click", () => {
-    current = current === "ar" ? "en" : "ar";
-    applyLanguage(current);
-  });
+function toggleLanguage(){
+  current = current === "ar" ? "en" : "ar";
+  applyLanguage(current);
 }
+
+if (toggle) toggle.addEventListener("click", toggleLanguage);
+if (langMobile) langMobile.addEventListener("click", toggleLanguage);
+
 applyLanguage(current);
 
-/* =========================
-   Demo form submit
-========================= */
+/* Demo form submit */
 window.AbPortfolio.handleSubmit = function(e){
   e.preventDefault();
   const status = document.getElementById("formStatus");
@@ -319,9 +322,7 @@ window.AbPortfolio.handleSubmit = function(e){
   return false;
 };
 
-/* =========================
-   Copy email
-========================= */
+/* Copy email */
 const copyBtn = document.getElementById("copyEmailBtn");
 if (copyBtn){
   copyBtn.addEventListener("click", async () => {
@@ -330,7 +331,6 @@ if (copyBtn){
       await navigator.clipboard.writeText(email);
       toast(dict[current]["toast.copied"]);
     }catch{
-      // fallback
       const tmp = document.createElement("textarea");
       tmp.value = email;
       document.body.appendChild(tmp);
@@ -342,10 +342,9 @@ if (copyBtn){
   });
 }
 
-/* =========================
-   Theme toggle (persist)
-========================= */
+/* Theme toggle (persist) */
 const themeBtn = document.getElementById("themeToggle");
+const themeMobile = document.getElementById("themeToggleMobile");
 const savedTheme = localStorage.getItem("abd_theme");
 if (savedTheme) document.body.setAttribute("data-theme", savedTheme);
 
@@ -356,32 +355,31 @@ function setTheme(next){
   toast(next === "light" ? dict[current]["toast.themeLight"] : dict[current]["toast.themeDark"]);
 }
 
-if (themeBtn){
-  themeBtn.addEventListener("click", () => {
-    const isLight = document.body.getAttribute("data-theme") === "light";
-    setTheme(isLight ? "dark" : "light");
-  });
+function toggleTheme(){
+  const isLight = document.body.getAttribute("data-theme") === "light";
+  setTheme(isLight ? "dark" : "light");
 }
 
-/* =========================
-   Back to top
-========================= */
+if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+if (themeMobile) themeMobile.addEventListener("click", toggleTheme);
+
+/* Back to top */
 const backToTop = document.getElementById("backToTop");
 if (backToTop){
   backToTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
 }
 
-/* =========================
-   Mobile menu
-========================= */
+/* Mobile menu */
 const burger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
+
 function closeMobile(){
   if (!mobileMenu || !burger) return;
   mobileMenu.classList.remove("open");
   burger.setAttribute("aria-expanded","false");
   mobileMenu.setAttribute("aria-hidden","true");
 }
+
 if (burger && mobileMenu){
   burger.addEventListener("click", () => {
     const open = mobileMenu.classList.toggle("open");
@@ -398,9 +396,7 @@ if (burger && mobileMenu){
   });
 }
 
-/* =========================
-   Reveal on scroll
-========================= */
+/* Reveal on scroll */
 const reveals = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(ent=>{
@@ -410,19 +406,18 @@ const io = new IntersectionObserver((entries)=>{
     }
   });
 },{threshold:0.12});
-
 reveals.forEach(el=> io.observe(el));
 
-/* =========================
-   Scroll spy for navbar
-========================= */
+/* Scroll spy */
 const sectionIds = ["home","about","journey","skills","projects","interests","contact"];
 const navLinks = document.querySelectorAll(".nav__link");
+
 function setActive(id){
   navLinks.forEach(a => {
     a.classList.toggle("active", a.getAttribute("data-section") === id);
   });
 }
+
 const spy = new IntersectionObserver((entries)=>{
   let best = null;
   for (const ent of entries){

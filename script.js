@@ -27,76 +27,84 @@ const dict = {
     "brand.sub": "Portfolio",
 
     "nav.home": "الرئيسية",
-    "nav.about": "عنّي",
-    "nav.journey": "رحلتي",
+    "nav.story": "قصتي",
+    "nav.work": "الأعمال",
     "nav.skills": "المهارات",
-    "nav.projects": "المشاريع",
     "nav.interests": "اهتمامات",
     "nav.contact": "تواصل",
     "nav.cv": "CV",
     "nav.theme": "ثيم",
 
-    "hero.eyebrow": "TECH • BUSINESS • DATA",
-    "hero.title": "عبدالله العمران — شغفي تحويل البيانات إلى قيمة",
-    "hero.subtitle": "طالب علوم الحاسب بجامعة الإمام عبدالرحمن بن فيصل. خبرة عملية في بيئات سريعة (Jarir + Huawei) مع تركيز على KPIs، التحليل، والتقارير — واهتمام قوي بـ Data Analytics وData Science.",
-    "hero.cta1": "استعرض أعمالي",
-    "hero.cta2": "خلّنا نتواصل",
+    "hero.eyebrow": "BUILD • ANALYZE • IMPROVE",
+    "hero.title": "عبدالله العمران — أبني أشياء “تتحرك” بالبيانات",
+    "hero.subtitle": "Portfolio يوضح من أنا: شغف تقنية + خبرة ميدانية + عقلية KPI. أهتم بـ Data Analytics وData Science وأحوّل الأرقام إلى قرار واضح.",
+    "hero.cta1": "شاهد الأعمال",
+    "hero.cta2": "اقرأ قصتي",
     "hero.copy": "نسخ الإيميل",
     "hero.badge": "Data Analytics",
-    "hero.cardTitle": "ملخص سريع",
-    "hero.cardTag": "أثر + انضباط + نمو",
-    "hero.k1": "إنجاز",
-    "hero.v1": "Employee of the Month",
-    "hero.k2": "أسلوبي",
-    "hero.v2": "KPI-driven reporting",
-    "hero.k3": "اتجاهي",
-    "hero.v3": "Data Analysis → Data Science",
+    "hero.cardTitle": "ما الذي أقدمه؟",
+    "hero.cardTag": "Clear • Practical • Data-driven",
+    "hero.p1t": "وضوح الهدف",
+    "hero.p1d": "أربط كل تحليل بـ KPI وقرار.",
+    "hero.p2t": "تنفيذ مرتب",
+    "hero.p2d": "SQL + تنظيف + توثيق + نتائج.",
+    "hero.p3t": "عرض جذّاب",
+    "hero.p3d": "Dashboards بسيطة ومقنعة.",
     "hero.cv": "تحميل CV",
-    "hero.journeyBtn": "رحلتي",
+    "hero.contact": "تواصل الآن",
 
-    "about.title": "عنّي",
-    "about.desc": "شخصيتي عملية: أحب النتائج الواضحة. أبدأ من الهدف، أرتّب البيانات، أطلع Insights، ثم أقدمها بشكل يفهمه أي شخص.",
-    "about.h1": "كيف أشتغل؟",
-    "about.s1t": "أفهم المشكلة",
-    "about.s1d": "وش القرار؟ وش الـKPI؟ وش اللي يهم الإدارة؟",
-    "about.s2t": "أشتغل على البيانات",
-    "about.s2d": "SQL / تنظيف / تنظيم / تحقق من الجودة",
-    "about.s3t": "أعرض النتيجة",
-    "about.s3d": "Dashboard بسيط + توصيات قابلة للتنفيذ",
-    "about.h2": "وش يميز عبدالله؟",
-    "about.b1": "Professionalism + انضباط عالي",
-    "about.b2": "تواصل واضح مع مختلف الأشخاص",
-    "about.b3": "ثبات تحت الضغط + تنفيذ يومي",
-    "about.b4": "فضول تقني قوي (Data/AI/Security)",
+    "story.title": "قصتي",
+    "story.desc": "أنا شخص يحب “النتيجة”. من الدراسة إلى العمل الميداني، تعلمت إن الأداء الحقيقي يبدأ من البيانات + الانضباط.",
+    "story.h1": "كيف بدأ اهتمامي بالبيانات؟",
+    "story.p1": "لما تتابع KPIs يوميًا في بيئة عمل سريعة، تبدأ تشوف “القصة” خلف الأرقام: ليش ارتفع؟ ليش نزل؟ وش القرار؟ هنا صار التحليل بالنسبة لي شيء عملي وليس نظري.",
+    "story.b1": "KPI mindset",
+    "story.b2": "Consistency",
+    "story.b3": "Learning by doing",
+    "story.h2": "مبادئي في الشغل",
+    "story.pr1t": "وضوح",
+    "story.pr1d": "التقرير الجيد يفهمه أي شخص.",
+    "story.pr2t": "توثيق",
+    "story.pr2d": "مشروع بدون README = مشروع ناقص.",
+    "story.pr3t": "تحسين مستمر",
+    "story.pr3d": "كل أسبوع خطوة للأمام.",
+    "story.h3": "الآن.. ماذا أبني؟",
+    "story.p3": "Portfolio هذا هو “واجهة” لمشاريعي القادمة: SQL + Power BI + Case Studies + Python pipelines. الهدف: أعمال قابلة للعرض وتثبت الجدية.",
 
-    "journey.title": "رحلتي الأكاديمية والمهنية",
-    "journey.desc": "من علوم الحاسب إلى خبرة ميدانية في البيع وإدارة المتجر — مع اتجاه واضح نحو البيانات.",
-    "journey.edu": "التعليم",
-    "journey.eduTitle": "BSc Computer Science",
-    "journey.eduMeta": "Imam Abdulrahman Bin Faisal University • 2022–2027 (Expected)",
-    "journey.jarir": "Jarir",
-    "journey.jarirTitle": "Salesman — Electronics & Smartphones",
-    "journey.jarirMeta": "Dhahran • 09/2023–01/2026",
-    "journey.jarir1": "Customer engagement + marketing initiatives",
-    "journey.jarir2": "Employee of the Month (June 2024)",
-    "journey.jarir3": "Backup support for aftersales readiness",
-    "journey.huawei": "Huawei",
-    "journey.huaweiTitle": "Store Manager (via TASC)",
-    "journey.huaweiMeta": "Khobar • 01/2026–Present",
-    "journey.huawei1": "Led daily operations and retail standards",
-    "journey.huawei2": "Tracked KPIs (sales, conversion, attach rate)",
-    "journey.huawei3": "Coordinated reporting and action plans",
+    "work.title": "الأعمال",
+    "work.desc": "بدل “قائمة مهام”، هنا Showcase: كل مشروع له هدف + أدوات + مخرجات + ماذا تعلمت.",
+    "work.featured": "Featured",
+    "work.case": "Case Pack",
+    "work.pipeline": "Pipeline",
+    "work.p1t": "Executive Dashboard (Weekly Report)",
+    "work.p1d": "لوحة تنفيذية تركز على KPIs الأساسية + Insights قابلة للتنفيذ.",
+    "work.p2t": "SQL Analytics Pack",
+    "work.p2d": "مجموعة استعلامات منظمة لمشاكل واقعية (تحليل نمو، أفضل منتجات، عملاء…).",
+    "work.p3t": "Data Cleaning + Quality Checks",
+    "work.p3d": "تنظيف بيانات + فحوصات جودة + تصدير dataset جاهز للتحديث.",
+    "work.more": "عرض التفاصيل",
+    "work.goal": "الهدف",
+    "work.stack": "الأدوات",
+    "work.output": "المخرجات",
+    "work.p1goal": "توضيح أداء المتجر أسبوعيًا لصناع القرار.",
+    "work.p1o1": "KPI page (Revenue/Orders/AOV/Repeat Rate)",
+    "work.p1o2": "Insights page (what happened + why + next action)",
+    "work.p1o3": "README + refresh instructions",
+    "work.p2o1": "MoM Growth + Top products",
+    "work.p2o2": "Customer retention metrics",
+    "work.p2o3": "Well-documented SQL file + comments",
+    "work.p3o1": "Null checks + duplicates + types",
+    "work.p3o2": "Export weekly-ready CSV",
+    "work.p3o3": "Reusable pipeline structure",
+    "work.repo": "Repo",
+    "work.demo": "Preview",
 
     "skills.title": "المهارات",
-    "skills.desc": "مزيج بين مهارات تقنية ومهارات شخصية — الهدف: نتائج واضحة وتواصل قوي.",
-    "skills.tech": "مهارات تقنية",
-    "skills.sql": "SQL",
+    "skills.desc": "مهارات تقنية + مهارات شخصية — لكن بصياغة “Portfolio” وليس CV.",
+    "skills.tech": "قدرات تقنية",
+    "skills.soft": "أسلوبي في العمل",
     "skills.sqlDesc": "Joins • Aggregations • CTE • Window Functions",
-    "skills.bi": "Power BI",
     "skills.biDesc": "Modeling • Measures • DAX • Storytelling",
-    "skills.py": "Python",
     "skills.pyDesc": "pandas • cleaning • exporting datasets",
-    "skills.soft": "مهارات شخصية",
     "skills.s1": "Communication",
     "skills.s2": "Teamwork",
     "skills.s3": "Problem-solving",
@@ -106,19 +114,8 @@ const dict = {
     "skills.ar": "Arabic (Native)",
     "skills.en": "English (Advanced)",
 
-    "projects.title": "المشاريع",
-    "projects.desc": "مشاريع تقنية تعكس طريقة تفكيري: هدف واضح → تنفيذ مرتب → نتيجة قابلة للعرض.",
-    "projects.p1t": "Executive Dashboard (Weekly Report)",
-    "projects.p1d": "KPIs مثل Revenue/Orders/AOV/Repeat Rate + صفحة Insights + تصميم واضح للإدارة.",
-    "projects.p2t": "SQL Analytics Pack",
-    "projects.p2d": "استعلامات منظمة لمشاكل واقعية (Top Products, MoM Growth, Customer metrics).",
-    "projects.p3t": "Data Cleaning + Quality Checks",
-    "projects.p3d": "تنظيف + اكتشاف nulls/duplicates + تصدير dataset جاهز للتحديث الأسبوعي.",
-    "projects.repo": "Repo",
-    "projects.demo": "Preview",
-
     "interests.title": "اهتماماتي التقنية",
-    "interests.desc": "السبايس الحقيقي: الأشياء اللي تشدني فعلاً في التقنية والبيانات.",
+    "interests.desc": "الأشياء اللي تعطيني حماس، وتحدد اتجاهي القادم.",
     "interests.i1t": "Data Analytics",
     "interests.i1d": "Dashboards, KPI design, storytelling, and business decisions.",
     "interests.i2t": "Data Science",
@@ -126,15 +123,10 @@ const dict = {
     "interests.i3t": "Security & Networks",
     "interests.i3d": "Curious about security mindset and how systems stay reliable.",
     "interests.i4t": "Building Systems",
-    "interests.i4d": "Organized code, clear structure, and delivering real outcomes.",
-    "interests.nowTitle": "حالياً أتعلم/أطور",
-    "interests.n1": "Advanced SQL (windows)",
-    "interests.n2": "Power BI dashboards",
-    "interests.n3": "Python for data",
-    "interests.n4": "Case studies writing",
+    "interests.i4d": "Organized code, clean structure, real outcomes.",
 
     "contact.title": "تواصل",
-    "contact.desc": "ارسل رسالة أو تواصل مباشرة — سعيد بأي فرصة أو تعاون.",
+    "contact.desc": "إذا تبغى تتواصل أو تسأل عن شيء — ارسل رسالة. 👇",
     "contact.name": "الاسم",
     "contact.email": "البريد الإلكتروني",
     "contact.msg": "الرسالة",
@@ -142,9 +134,9 @@ const dict = {
     "contact.direct": "معلومات مباشرة",
     "contact.top": "للأعلى ↑",
 
-    "footer.about": "عنّي",
-    "footer.journey": "رحلتي",
-    "footer.projects": "المشاريع",
+    "footer.story": "قصتي",
+    "footer.work": "الأعمال",
+    "footer.skills": "المهارات",
     "footer.contact": "تواصل",
 
     "toast.copied": "تم نسخ الإيميل ✅",
@@ -160,76 +152,84 @@ const dict = {
     "brand.sub": "Portfolio",
 
     "nav.home": "Home",
-    "nav.about": "About",
-    "nav.journey": "Journey",
+    "nav.story": "Story",
+    "nav.work": "Work",
     "nav.skills": "Skills",
-    "nav.projects": "Projects",
     "nav.interests": "Interests",
     "nav.contact": "Contact",
     "nav.cv": "CV",
     "nav.theme": "Theme",
 
-    "hero.eyebrow": "TECH • BUSINESS • DATA",
-    "hero.title": "Abdullah Alomran — Turning data into value",
-    "hero.subtitle": "Computer Science student at Imam Abdulrahman Bin Faisal University. Hands-on experience in fast-paced environments (Jarir + Huawei) with KPI tracking, analysis, and reporting — and a strong interest in Data Analytics & Data Science.",
-    "hero.cta1": "View my work",
-    "hero.cta2": "Let’s connect",
+    "hero.eyebrow": "BUILD • ANALYZE • IMPROVE",
+    "hero.title": "Abdullah Alomran — building with data-driven thinking",
+    "hero.subtitle": "A portfolio that shows who I am: tech passion + hands-on work + KPI mindset. Focused on Data Analytics & Data Science to turn numbers into decisions.",
+    "hero.cta1": "View work",
+    "hero.cta2": "Read my story",
     "hero.copy": "Copy email",
     "hero.badge": "Data Analytics",
-    "hero.cardTitle": "Quick snapshot",
-    "hero.cardTag": "Impact • Discipline • Growth",
-    "hero.k1": "Highlight",
-    "hero.v1": "Employee of the Month",
-    "hero.k2": "Style",
-    "hero.v2": "KPI-driven reporting",
-    "hero.k3": "Direction",
-    "hero.v3": "Data Analysis → Data Science",
+    "hero.cardTitle": "What I bring",
+    "hero.cardTag": "Clear • Practical • Data-driven",
+    "hero.p1t": "Goal clarity",
+    "hero.p1d": "Every analysis ties to a KPI & decision.",
+    "hero.p2t": "Structured execution",
+    "hero.p2d": "SQL + cleaning + docs + results.",
+    "hero.p3t": "Strong delivery",
+    "hero.p3d": "Simple dashboards that persuade.",
     "hero.cv": "Download CV",
-    "hero.journeyBtn": "My journey",
+    "hero.contact": "Contact now",
 
-    "about.title": "About",
-    "about.desc": "I’m practical and outcome-driven. I start from the goal, organize the data, extract insights, then present them in a way anyone can understand.",
-    "about.h1": "How I work",
-    "about.s1t": "Understand the problem",
-    "about.s1d": "What decision? Which KPI? What matters to stakeholders?",
-    "about.s2t": "Work with the data",
-    "about.s2d": "SQL / cleaning / structuring / quality checks",
-    "about.s3t": "Present the result",
-    "about.s3d": "Simple dashboard + actionable recommendations",
-    "about.h2": "What makes Abdullah",
-    "about.b1": "Professional and disciplined execution",
-    "about.b2": "Clear communication (technical & non-technical)",
-    "about.b3": "Consistent under pressure + daily delivery",
-    "about.b4": "Strong tech curiosity (Data/AI/Security)",
+    "story.title": "Story",
+    "story.desc": "I’m outcome-driven. From study to fast-paced work, I learned performance starts with data + discipline.",
+    "story.h1": "How did my data interest start?",
+    "story.p1": "When you track KPIs daily, you start seeing the story behind numbers: why it moved, what changed, and what decision should follow. That made analytics practical for me.",
+    "story.b1": "KPI mindset",
+    "story.b2": "Consistency",
+    "story.b3": "Learning by doing",
+    "story.h2": "My principles",
+    "story.pr1t": "Clarity",
+    "story.pr1d": "A good report is understandable to anyone.",
+    "story.pr2t": "Documentation",
+    "story.pr2d": "No README = incomplete project.",
+    "story.pr3t": "Continuous improvement",
+    "story.pr3d": "One step forward each week.",
+    "story.h3": "What I’m building now",
+    "story.p3": "This portfolio is a front door for upcoming work: SQL + Power BI + Case studies + Python pipelines — focused on showable outcomes.",
 
-    "journey.title": "Academic & Professional Journey",
-    "journey.desc": "From CS studies to real-world leadership — with a clear direction toward data.",
-    "journey.edu": "Education",
-    "journey.eduTitle": "BSc Computer Science",
-    "journey.eduMeta": "Imam Abdulrahman Bin Faisal University • 2022–2027 (Expected)",
-    "journey.jarir": "Jarir",
-    "journey.jarirTitle": "Salesman — Electronics & Smartphones",
-    "journey.jarirMeta": "Dhahran • 09/2023–01/2026",
-    "journey.jarir1": "Customer engagement + marketing initiatives",
-    "journey.jarir2": "Employee of the Month (June 2024)",
-    "journey.jarir3": "Backup support for aftersales readiness",
-    "journey.huawei": "Huawei",
-    "journey.huaweiTitle": "Store Manager (via TASC)",
-    "journey.huaweiMeta": "Khobar • 01/2026–Present",
-    "journey.huawei1": "Led daily operations and retail standards",
-    "journey.huawei2": "Tracked KPIs (sales, conversion, attach rate)",
-    "journey.huawei3": "Coordinated reporting and action plans",
+    "work.title": "Work",
+    "work.desc": "Not a task list — a showcase: goal + tools + outputs + what I learned.",
+    "work.featured": "Featured",
+    "work.case": "Case Pack",
+    "work.pipeline": "Pipeline",
+    "work.p1t": "Executive Dashboard (Weekly Report)",
+    "work.p1d": "Executive KPIs + actionable insights.",
+    "work.p2t": "SQL Analytics Pack",
+    "work.p2d": "Structured queries for real problems (growth, products, customers…).",
+    "work.p3t": "Data Cleaning + Quality Checks",
+    "work.p3d": "Cleaning + QA + export weekly-ready dataset.",
+    "work.more": "Show details",
+    "work.goal": "Goal",
+    "work.stack": "Stack",
+    "work.output": "Outputs",
+    "work.p1goal": "Weekly performance clarity for decision-makers.",
+    "work.p1o1": "KPI page (Revenue/Orders/AOV/Repeat Rate)",
+    "work.p1o2": "Insights page (what happened + why + next action)",
+    "work.p1o3": "README + refresh instructions",
+    "work.p2o1": "MoM Growth + Top products",
+    "work.p2o2": "Customer retention metrics",
+    "work.p2o3": "Well-documented SQL file + comments",
+    "work.p3o1": "Null checks + duplicates + types",
+    "work.p3o2": "Export weekly-ready CSV",
+    "work.p3o3": "Reusable pipeline structure",
+    "work.repo": "Repo",
+    "work.demo": "Preview",
 
     "skills.title": "Skills",
-    "skills.desc": "A mix of technical and soft skills — with one goal: clear outcomes and strong communication.",
-    "skills.tech": "Technical skills",
-    "skills.sql": "SQL",
+    "skills.desc": "Technical + soft skills — but presented as a portfolio, not a CV.",
+    "skills.tech": "Technical strengths",
+    "skills.soft": "How I work",
     "skills.sqlDesc": "Joins • Aggregations • CTE • Window Functions",
-    "skills.bi": "Power BI",
     "skills.biDesc": "Modeling • Measures • DAX • Storytelling",
-    "skills.py": "Python",
     "skills.pyDesc": "pandas • cleaning • exporting datasets",
-    "skills.soft": "Soft skills",
     "skills.s1": "Communication",
     "skills.s2": "Teamwork",
     "skills.s3": "Problem-solving",
@@ -239,35 +239,19 @@ const dict = {
     "skills.ar": "Arabic (Native)",
     "skills.en": "English (Advanced)",
 
-    "projects.title": "Projects",
-    "projects.desc": "Projects that reflect how I think: clear goal → structured execution → presentable outcome.",
-    "projects.p1t": "Executive Dashboard (Weekly Report)",
-    "projects.p1d": "KPIs like Revenue/Orders/AOV/Repeat Rate + Insights page + executive-friendly design.",
-    "projects.p2t": "SQL Analytics Pack",
-    "projects.p2d": "Structured queries for real problems (Top Products, MoM Growth, customer metrics).",
-    "projects.p3t": "Data Cleaning + Quality Checks",
-    "projects.p3d": "Cleaning + null/duplicate checks + exporting weekly-ready dataset.",
-    "projects.repo": "Repo",
-    "projects.demo": "Preview",
-
-    "interests.title": "Tech interests",
-    "interests.desc": "The real spice — what genuinely pulls me toward tech and data.",
+    "interests.title": "Interests",
+    "interests.desc": "What genuinely excites me and shapes my direction.",
     "interests.i1t": "Data Analytics",
-    "interests.i1d": "Dashboards, KPI design, storytelling, and business decisions.",
+    "interests.i1d": "Dashboards, KPI design, storytelling, business decisions.",
     "interests.i2t": "Data Science",
-    "interests.i2d": "Model thinking, feature ideas, and turning data into prediction.",
+    "interests.i2d": "Model thinking, feature ideas, turning data into prediction.",
     "interests.i3t": "Security & Networks",
-    "interests.i3d": "Curious about security mindset and how systems stay reliable.",
+    "interests.i3d": "Curiosity about security mindset and reliability.",
     "interests.i4t": "Building Systems",
-    "interests.i4d": "Organized code, clear structure, and delivering real outcomes.",
-    "interests.nowTitle": "Currently learning/building",
-    "interests.n1": "Advanced SQL (windows)",
-    "interests.n2": "Power BI dashboards",
-    "interests.n3": "Python for data",
-    "interests.n4": "Case studies writing",
+    "interests.i4d": "Organized code, clean structure, real outcomes.",
 
     "contact.title": "Contact",
-    "contact.desc": "Send a message or reach out directly — happy to connect and collaborate.",
+    "contact.desc": "Want to connect or ask something? Send a message 👇",
     "contact.name": "Name",
     "contact.email": "Email",
     "contact.msg": "Message",
@@ -275,9 +259,9 @@ const dict = {
     "contact.direct": "Direct info",
     "contact.top": "Back to top ↑",
 
-    "footer.about": "About",
-    "footer.journey": "Journey",
-    "footer.projects": "Projects",
+    "footer.story": "Story",
+    "footer.work": "Work",
+    "footer.skills": "Skills",
     "footer.contact": "Contact",
 
     "toast.copied": "Email copied ✅",
@@ -354,12 +338,10 @@ function setTheme(next){
   localStorage.setItem("abd_theme", next);
   toast(next === "light" ? dict[current]["toast.themeLight"] : dict[current]["toast.themeDark"]);
 }
-
 function toggleTheme(){
   const isLight = document.body.getAttribute("data-theme") === "light";
   setTheme(isLight ? "dark" : "light");
 }
-
 if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
 if (themeMobile) themeMobile.addEventListener("click", toggleTheme);
 
@@ -372,28 +354,20 @@ if (backToTop){
 /* Mobile menu */
 const burger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
-
 function closeMobile(){
   if (!mobileMenu || !burger) return;
   mobileMenu.classList.remove("open");
   burger.setAttribute("aria-expanded","false");
   mobileMenu.setAttribute("aria-hidden","true");
 }
-
 if (burger && mobileMenu){
   burger.addEventListener("click", () => {
     const open = mobileMenu.classList.toggle("open");
     burger.setAttribute("aria-expanded", String(open));
     mobileMenu.setAttribute("aria-hidden", String(!open));
   });
-
-  mobileMenu.querySelectorAll("a").forEach(a => {
-    a.addEventListener("click", () => closeMobile());
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMobile();
-  });
+  mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMobile));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMobile(); });
 }
 
 /* Reveal on scroll */
@@ -409,15 +383,11 @@ const io = new IntersectionObserver((entries)=>{
 reveals.forEach(el=> io.observe(el));
 
 /* Scroll spy */
-const sectionIds = ["home","about","journey","skills","projects","interests","contact"];
+const sectionIds = ["home","story","work","skills","interests","contact"];
 const navLinks = document.querySelectorAll(".nav__link");
-
 function setActive(id){
-  navLinks.forEach(a => {
-    a.classList.toggle("active", a.getAttribute("data-section") === id);
-  });
+  navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === id));
 }
-
 const spy = new IntersectionObserver((entries)=>{
   let best = null;
   for (const ent of entries){
@@ -427,7 +397,6 @@ const spy = new IntersectionObserver((entries)=>{
   }
   if(best) setActive(best.target.id);
 },{threshold:[0.25,0.35,0.5,0.65]});
-
 sectionIds.forEach(id=>{
   const el = document.getElementById(id);
   if(el) spy.observe(el);

@@ -600,3 +600,22 @@ input:focus, textarea:focus{ border-color: color-mix(in srgb, var(--a) 35%, var(
 /* Reveal animations */
 .reveal{ opacity:0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.in{ opacity:1; transform: translateY(0px); }
+
+/* --- Coming soon buttons --- */
+.btn--disabled{
+  opacity:.55;
+  filter: blur(.6px);
+  pointer-events:none;
+  cursor:not-allowed;
+}
+
+.soon{
+  margin-top:10px;
+  font-weight:900;
+  color: var(--muted);
+  letter-spacing:.3px;
+  border:1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--bg2) 35%, transparent);
+  border-radius: 14px;
+  padding:10px 12px;
+}

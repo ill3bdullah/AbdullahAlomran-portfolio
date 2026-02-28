@@ -12,9 +12,7 @@ function toast(msg){
   toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
 }
 
-/* ====== Put your Formspree endpoint here ======
-Example: https://formspree.io/f/abcdwxyz
-*/
+/* ✅ Your Formspree endpoint (active) */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzbyjdk";
 
 /* Language */
@@ -65,7 +63,6 @@ const dict = {
     "toast.copied":"تم نسخ الإيميل ✅",
     "toast.sent":"تم الإرسال ✅",
     "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا.",
-    "toast.missing":"لازم تضيف رابط Formspree أولاً.",
     "toast.themeDark":"الوضع الداكن 🌙",
     "toast.themeLight":"الوضع الفاتح ☀️",
   },
@@ -111,7 +108,6 @@ const dict = {
     "toast.copied":"Email copied ✅",
     "toast.sent":"Message sent ✅",
     "toast.fail":"Couldn’t send right now. Try again later.",
-    "toast.missing":"Add your Formspree endpoint first.",
     "toast.themeDark":"Dark mode 🌙",
     "toast.themeLight":"Light mode ☀️",
   }
@@ -235,19 +231,13 @@ sectionIds.forEach(id=>{
   if(el) spy.observe(el);
 });
 
-/* Contact form */
+/* Contact form -> Formspree */
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
 
 if (form){
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes("mvzbyjdk")){
-      toast(dict[current]["toast.missing"]);
-      if (status) status.textContent = dict[current]["toast.missing"];
-      return;
-    }
 
     const formData = new FormData(form);
 

@@ -12,238 +12,108 @@ function toast(msg){
   toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
 }
 
-/* ========= Formspree (Put your endpoint here) =========
-   After you create Formspree form, you will get a URL like:
-   https://formspree.io/f/abcdwxyz
+/* ====== Put your Formspree endpoint here ======
+Example: https://formspree.io/f/abcdwxyz
 */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzbyjdk";
 
-/* =========================
-   Language (AR/EN) - natural copy
-========================= */
-const toggle = document.getElementById("langToggle");
+/* Language */
+const langBtn = document.getElementById("langToggle");
 const langMobile = document.getElementById("langToggleMobile");
 let current = "ar";
 
 const dict = {
   ar: {
-    dir: "rtl",
-    lang: "ar",
-    toggle: "English",
+    dir: "rtl", lang: "ar", toggle: "English",
     "brand.sub": "Portfolio",
+    "nav.home":"الرئيسية", "nav.highlights":"لمحة", "nav.work":"أعمال", "nav.contact":"تواصل",
+    "nav.cv":"CV", "nav.theme":"ثيم",
 
-    "nav.home": "الرئيسية",
-    "nav.story": "قصتي",
-    "nav.work": "الأعمال",
-    "nav.skills": "المهارات",
-    "nav.interests": "اهتمامات",
-    "nav.contact": "تواصل",
-    "nav.cv": "CV",
-    "nav.theme": "ثيم",
+    "hero.eyebrow":"DATA • EXECUTION • IMPACT",
+    "hero.title":"عبدالله العمران",
+    "hero.subtitle":"عقلية قياس + تنفيذ. أركز على تحويل البيانات إلى قرار واضح عبر SQL وPower BI، وبناء مشاريع مرتبة قابلة للعرض.",
+    "hero.cta1":"الأعمال", "hero.cta2":"تواصل", "hero.copy":"نسخ الإيميل",
+    "hero.badge":"Data Analytics",
+    "hero.cardTitle":"لمحة سريعة",
+    "hero.cardTag":"Clear • Practical • Consistent",
+    "hero.line1k":"التركيز", "hero.line1v":"Analytics → Data Science",
+    "hero.line2k":"الأسلوب", "hero.line2v":"KPI-driven reporting",
+    "hero.line3k":"روابط", "hero.cv":"تحميل CV", "hero.more":"اللمحة",
 
-    "hero.eyebrow": "BUILD • ANALYZE • IMPROVE",
-    "hero.title": "عبدالله العمران — أحوّل البيانات لقرارات مفهومة",
-    "hero.subtitle": "هذا الموقع يعرّفك على عبدالله بشكل تقني: عقلية قياس + تنفيذ + تطوير مستمر. اهتمامي الأساسي هو Data Analytics وData Science.",
-    "hero.cta1": "شاهد الأعمال",
-    "hero.cta2": "اقرأ قصتي",
-    "hero.copy": "نسخ الإيميل",
-    "hero.badge": "Data Analytics",
-    "hero.cardTitle": "وش تتوقع من عبدالله؟",
-    "hero.cardTag": "Clarity • Discipline • Growth",
-    "hero.p1t": "وضوح الهدف",
-    "hero.p1d": "كل شيء يبدأ بسؤال: وش القرار؟",
-    "hero.p2t": "تنفيذ مضبوط",
-    "hero.p2d": "تنظيم البيانات + تحليل + توثيق.",
-    "hero.p3t": "عرض قوي",
-    "hero.p3d": "Insights واضحة + Dashboard جذاب.",
-    "hero.cv": "تحميل CV",
-    "hero.contact": "تواصل",
+    "hl.title":"لمحة سريعة",
+    "hl.desc":"مختصر مفيد: أسلوبي في العمل، اهتمامي، والشيء اللي أقدمه.",
+    "hl.c1t":"Decision-first", "hl.c1d":"أبدأ من القرار، ثم KPI، ثم التحليل.",
+    "hl.c2t":"Clean execution", "hl.c2d":"تنظيم + توثيق + مخرجات واضحة.",
+    "hl.c3t":"Portfolio-ready", "hl.c3d":"أبني مشاريع قابلة للعرض، مو مجرد كلام.",
 
-    "story.title": "قصتي",
-    "story.desc": "رحلة تجمع بين الدراسة والعمل الميداني — والنتيجة: عقلية قياس وتحسين مستمر.",
-    "story.h1": "كيف بدأ اهتمامي بالبيانات؟",
-    "story.p1": "متابعة الأرقام يوميًا تغيّر طريقة التفكير: الأرقام ما هي نهاية، هي بداية سؤال. ومع الوقت صار التحليل عادة يومية.",
-    "story.b1": "KPI mindset",
-    "story.b2": "Consistency",
-    "story.b3": "Learning by doing",
-    "story.h2": "مبادئ شغلي",
-    "story.pr1t": "وضوح",
-    "story.pr1d": "التقرير القوي بسيط ومقنع.",
-    "story.pr2t": "توثيق",
-    "story.pr2d": "كل مشروع لازم يكون قابل للفهم والتشغيل.",
-    "story.pr3t": "تحسين",
-    "story.pr3d": "كل أسبوع: تطوير صغير لكن ثابت.",
-    "story.h3": "وش جاي بعد؟",
-    "story.p3": "مشاريع تحليل + Dashboards + Case Studies… الهدف: أعمال تثبت الجدية وتبين الأسلوب.",
+    "work.title":"الأعمال",
+    "work.desc":"مختارات مشاريع — قريبًا بتنزل بتفاصيلها كاملة.",
+    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights لصُنّاع القرار.",
+    "work.p2t":"SQL Analytics Pack", "work.p2d":"استعلامات منظمة لتحليل واقعي.",
+    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + exports جاهزة أسبوعيًا.",
+    "work.soon":"Soon to be deployed!",
+    "work.repo":"Repo", "work.demo":"Preview",
 
-    "work.title": "الأعمال",
-    "work.desc": "مشاريع قادمة بأسلوب Showcase — قريبًا سيتم نشرها بشكل كامل.",
-    "work.featured": "Featured",
-    "work.case": "Case Pack",
-    "work.pipeline": "Pipeline",
-    "work.p1t": "Executive Dashboard (Weekly Report)",
-    "work.p1d": "لوحة KPIs + صفحة Insights قابلة للتنفيذ.",
-    "work.p2t": "SQL Analytics Pack",
-    "work.p2d": "استعلامات منظمة لمشاكل تحليل واقعية.",
-    "work.p3t": "Data Cleaning + Quality Checks",
-    "work.p3d": "تنظيف + جودة + تصدير Dataset أسبوعي.",
-    "work.soon": "Soon to be deployed!",
-    "work.repo": "Repo",
-    "work.demo": "Preview",
+    "contact.title":"تواصل",
+    "contact.desc":"ارسل رسالة — توصل مباشرة إلى البريد.",
+    "contact.name":"الاسم", "contact.email":"البريد", "contact.msg":"الرسالة", "contact.send":"إرسال",
+    "contact.connectTitle":"Connect", "contact.connectDesc":"تفضل الروابط الاجتماعية لو تبي.",
+    "contact.top":"للأعلى ↑",
 
-    "skills.title": "المهارات",
-    "skills.desc": "أدوات أستخدمها فعليًا + أسلوب عمل يعطي نتائج.",
-    "skills.tech": "قدرات تقنية",
-    "skills.soft": "أسلوبي في العمل",
-    "skills.s1": "Communication",
-    "skills.s2": "Teamwork",
-    "skills.s3": "Problem-solving",
-    "skills.s4": "Time management",
-    "skills.s5": "Adaptability",
-    "skills.s6": "Target-driven",
+    "footer.highlights":"لمحة", "footer.work":"أعمال", "footer.contact":"تواصل",
 
-    "interests.title": "اهتمامات",
-    "interests.desc": "مجالات أتابعها باستمرار وتغذّي شغفي.",
-    "interests.i1t": "Data Analytics",
-    "interests.i1d": "Dashboards, KPI design, storytelling, and decisions.",
-    "interests.i2t": "Data Science",
-    "interests.i2d": "Model thinking and turning data into prediction.",
-    "interests.i3t": "Security",
-    "interests.i3d": "Curious about reliability and security mindset.",
-    "interests.i4t": "Building Systems",
-    "interests.i4d": "Clean structure, real outcomes, continuous improvement.",
-
-    "contact.title": "تواصل",
-    "contact.desc": "ارسل رسالة مباشرة — رح توصلني على الإيميل.",
-    "contact.name": "الاسم",
-    "contact.email": "البريد الإلكتروني",
-    "contact.msg": "الرسالة",
-    "contact.send": "إرسال",
-    "contact.connectTitle": "خلّنا نتواصل",
-    "contact.connectDesc": "إذا تحب تتواصل بشكل أسرع، تقدر تزور حساباتي.",
-    "contact.top": "للأعلى ↑",
-
-    "footer.story": "قصتي",
-    "footer.work": "الأعمال",
-    "footer.skills": "المهارات",
-    "footer.contact": "تواصل",
-
-    "toast.copied": "تم نسخ الإيميل ✅",
-    "toast.sent": "تم إرسال الرسالة ✅",
-    "toast.fail": "تعذر الإرسال الآن — جرّب لاحقًا.",
-    "toast.missing": "لازم تضيف رابط Formspree أولاً.",
-    "toast.themeDark": "الوضع الداكن 🌙",
-    "toast.themeLight": "الوضع الفاتح ☀️",
+    "toast.copied":"تم نسخ الإيميل ✅",
+    "toast.sent":"تم الإرسال ✅",
+    "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا.",
+    "toast.missing":"لازم تضيف رابط Formspree أولاً.",
+    "toast.themeDark":"الوضع الداكن 🌙",
+    "toast.themeLight":"الوضع الفاتح ☀️",
   },
-
   en: {
-    dir: "ltr",
-    lang: "en",
-    toggle: "العربية",
+    dir: "ltr", lang: "en", toggle: "العربية",
     "brand.sub": "Portfolio",
+    "nav.home":"Home", "nav.highlights":"Highlights", "nav.work":"Work", "nav.contact":"Contact",
+    "nav.cv":"CV", "nav.theme":"Theme",
 
-    "nav.home": "Home",
-    "nav.story": "Story",
-    "nav.work": "Work",
-    "nav.skills": "Skills",
-    "nav.interests": "Interests",
-    "nav.contact": "Contact",
-    "nav.cv": "CV",
-    "nav.theme": "Theme",
+    "hero.eyebrow":"DATA • EXECUTION • IMPACT",
+    "hero.title":"Abdullah Alomran",
+    "hero.subtitle":"Execution-first and KPI-driven. I turn data into clear decisions using SQL and Power BI — and build portfolio-ready projects.",
+    "hero.cta1":"Work", "hero.cta2":"Contact", "hero.copy":"Copy email",
+    "hero.badge":"Data Analytics",
+    "hero.cardTitle":"Quick Glimpse",
+    "hero.cardTag":"Clear • Practical • Consistent",
+    "hero.line1k":"Focus", "hero.line1v":"Analytics → Data Science",
+    "hero.line2k":"Style", "hero.line2v":"KPI-driven reporting",
+    "hero.line3k":"Links", "hero.cv":"Download CV", "hero.more":"Highlights",
 
-    "hero.eyebrow": "BUILD • ANALYZE • IMPROVE",
-    "hero.title": "Abdullah Alomran — turning data into clear decisions",
-    "hero.subtitle": "A portfolio that reflects discipline, execution, and continuous growth. Focused on Data Analytics and Data Science.",
-    "hero.cta1": "View work",
-    "hero.cta2": "Read my story",
-    "hero.copy": "Copy email",
-    "hero.badge": "Data Analytics",
-    "hero.cardTitle": "What to expect",
-    "hero.cardTag": "Clarity • Discipline • Growth",
-    "hero.p1t": "Goal clarity",
-    "hero.p1d": "Start from the decision, then the KPI.",
-    "hero.p2t": "Structured execution",
-    "hero.p2d": "Organize data, analyze, document.",
-    "hero.p3t": "Strong delivery",
-    "hero.p3d": "Clear insights and persuasive dashboards.",
-    "hero.cv": "Download CV",
-    "hero.contact": "Contact",
+    "hl.title":"Highlights",
+    "hl.desc":"A quick snapshot of how Abdullah works and what he brings.",
+    "hl.c1t":"Decision-first", "hl.c1d":"Start from the decision, then the KPI.",
+    "hl.c2t":"Clean execution", "hl.c2d":"Structured work, clear docs, clean outputs.",
+    "hl.c3t":"Portfolio-ready", "hl.c3d":"Projects built to be shown — not just described.",
 
-    "story.title": "Story",
-    "story.desc": "A journey between study and real work — shaped by measurement and steady improvement.",
-    "story.h1": "Where did the data interest start?",
-    "story.p1": "Daily numbers change how you think: metrics aren’t the end — they’re the start of a better question. Over time, analysis becomes a habit.",
-    "story.b1": "KPI mindset",
-    "story.b2": "Consistency",
-    "story.b3": "Learning by doing",
-    "story.h2": "How I work",
-    "story.pr1t": "Clarity",
-    "story.pr1d": "Great reporting is simple and convincing.",
-    "story.pr2t": "Documentation",
-    "story.pr2d": "Projects should be runnable and understandable.",
-    "story.pr3t": "Improvement",
-    "story.pr3d": "Small progress, every week.",
-    "story.h3": "What’s next?",
-    "story.p3": "Analytics projects, dashboards, and case studies — built to show real dedication.",
+    "work.title":"Work",
+    "work.desc":"Selected projects — launching soon with full writeups.",
+    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights for decision-makers.",
+    "work.p2t":"SQL Analytics Pack", "work.p2d":"A structured set of real analytics queries.",
+    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + weekly-ready exports.",
+    "work.soon":"Soon to be deployed!",
+    "work.repo":"Repo", "work.demo":"Preview",
 
-    "work.title": "Work",
-    "work.desc": "Upcoming showcase projects — launching soon with full details.",
-    "work.featured": "Featured",
-    "work.case": "Case Pack",
-    "work.pipeline": "Pipeline",
-    "work.p1t": "Executive Dashboard (Weekly Report)",
-    "work.p1d": "Executive KPIs with actionable insights.",
-    "work.p2t": "SQL Analytics Pack",
-    "work.p2d": "Structured SQL cases for real analysis problems.",
-    "work.p3t": "Data Cleaning + Quality Checks",
-    "work.p3d": "Cleaning, QA checks, and weekly exports.",
-    "work.soon": "Soon to be deployed!",
-    "work.repo": "Repo",
-    "work.demo": "Preview",
+    "contact.title":"Contact",
+    "contact.desc":"Send a message — it reaches my inbox.",
+    "contact.name":"Name", "contact.email":"Email", "contact.msg":"Message", "contact.send":"Send",
+    "contact.connectTitle":"Connect", "contact.connectDesc":"Prefer social? Use the links below.",
+    "contact.top":"Back to top ↑",
 
-    "skills.title": "Skills",
-    "skills.desc": "Tools I actually use — with an execution-first mindset.",
-    "skills.tech": "Technical",
-    "skills.soft": "Work style",
-    "skills.s1": "Communication",
-    "skills.s2": "Teamwork",
-    "skills.s3": "Problem-solving",
-    "skills.s4": "Time management",
-    "skills.s5": "Adaptability",
-    "skills.s6": "Target-driven",
+    "footer.highlights":"Highlights", "footer.work":"Work", "footer.contact":"Contact",
 
-    "interests.title": "Interests",
-    "interests.desc": "Topics I actively follow and build around.",
-    "interests.i1t": "Data Analytics",
-    "interests.i1d": "Dashboards, KPI design, storytelling, decisions.",
-    "interests.i2t": "Data Science",
-    "interests.i2d": "Model thinking and prediction with data.",
-    "interests.i3t": "Security",
-    "interests.i3d": "Reliability and security mindset.",
-    "interests.i4t": "Building Systems",
-    "interests.i4d": "Clean structure, real outcomes, steady improvement.",
-
-    "contact.title": "Contact",
-    "contact.desc": "Send a message — it will reach my inbox.",
-    "contact.name": "Name",
-    "contact.email": "Email",
-    "contact.msg": "Message",
-    "contact.send": "Send",
-    "contact.connectTitle": "Let’s connect",
-    "contact.connectDesc": "For quicker reach, you can use my social profiles.",
-    "contact.top": "Back to top ↑",
-
-    "footer.story": "Story",
-    "footer.work": "Work",
-    "footer.skills": "Skills",
-    "footer.contact": "Contact",
-
-    "toast.copied": "Email copied ✅",
-    "toast.sent": "Message sent ✅",
-    "toast.fail": "Couldn’t send right now. Try again later.",
-    "toast.missing": "Add your Formspree endpoint first.",
-    "toast.themeDark": "Dark mode 🌙",
-    "toast.themeLight": "Light mode ☀️",
+    "toast.copied":"Email copied ✅",
+    "toast.sent":"Message sent ✅",
+    "toast.fail":"Couldn’t send right now. Try again later.",
+    "toast.missing":"Add your Formspree endpoint first.",
+    "toast.themeDark":"Dark mode 🌙",
+    "toast.themeLight":"Light mode ☀️",
   }
 };
 
@@ -252,7 +122,7 @@ function applyLanguage(code){
   document.documentElement.lang = t.lang;
   document.documentElement.dir = t.dir;
 
-  if (toggle) toggle.textContent = t.toggle;
+  if (langBtn) langBtn.textContent = t.toggle;
   if (langMobile) langMobile.textContent = t.toggle;
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -265,8 +135,7 @@ function toggleLanguage(){
   current = current === "ar" ? "en" : "ar";
   applyLanguage(current);
 }
-
-if (toggle) toggle.addEventListener("click", toggleLanguage);
+if (langBtn) langBtn.addEventListener("click", toggleLanguage);
 if (langMobile) langMobile.addEventListener("click", toggleLanguage);
 applyLanguage(current);
 
@@ -334,7 +203,7 @@ if (burger && mobileMenu){
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMobile(); });
 }
 
-/* Reveal on scroll */
+/* Reveal */
 const reveals = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(ent=>{
@@ -347,7 +216,7 @@ const io = new IntersectionObserver((entries)=>{
 reveals.forEach(el=> io.observe(el));
 
 /* Scroll spy */
-const sectionIds = ["home","story","work","skills","interests","contact"];
+const sectionIds = ["home","highlights","work","contact"];
 const navLinks = document.querySelectorAll(".nav__link");
 function setActive(id){
   navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === id));
@@ -366,7 +235,7 @@ sectionIds.forEach(id=>{
   if(el) spy.observe(el);
 });
 
-/* ===== Contact form: actually send email via Formspree ===== */
+/* Contact form */
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
 
@@ -374,7 +243,7 @@ if (form){
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")){
+    if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes("mvzbyjdk")){
       toast(dict[current]["toast.missing"]);
       if (status) status.textContent = dict[current]["toast.missing"];
       return;
@@ -403,4 +272,3 @@ if (form){
     }
   });
 }
-

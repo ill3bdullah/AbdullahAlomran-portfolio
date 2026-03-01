@@ -12,69 +12,67 @@ function toast(msg){
   toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
 }
 
-/* ✅ Your Formspree endpoint (active) */
+/* ✅ Formspree endpoint */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzbyjdk";
 
 /* Language */
 const langBtn = document.getElementById("langToggle");
 const langMobile = document.getElementById("langToggleMobile");
-let current = "ar";
+let current = "en"; // start in English (your screenshots show English)
 
 const dict = {
   ar: {
     dir: "rtl", lang: "ar", toggle: "English",
-    "brand.sub": "Portfolio",
+    "brand.sub":"Portfolio",
     "nav.home":"الرئيسية", "nav.highlights":"لمحة", "nav.work":"أعمال", "nav.contact":"تواصل",
-    "nav.cv":"CV", "nav.theme":"ثيم",
+    "nav.cv":"CV", "nav.menuLabel":"القائمة",
 
     "hero.eyebrow":"DATA • EXECUTION • IMPACT",
     "hero.title":"عبدالله العمران",
-    "hero.subtitle":"عقلية قياس + تنفيذ. أركز على تحويل البيانات إلى قرار واضح عبر SQL وPower BI، وبناء مشاريع مرتبة قابلة للعرض.",
+    "hero.subtitle":"أنا طالب علوم حاسب أحب أبني أشياء مفيدة. أرتّب البيانات، أطلع منها معنى، وأعرضها بشكل واضح يساعد على اتخاذ قرار.",
     "hero.cta1":"الأعمال", "hero.cta2":"تواصل", "hero.copy":"نسخ الإيميل",
-    "hero.badge":"Data Analytics",
+    "hero.badge":"تحليل البيانات",
     "hero.cardTitle":"لمحة سريعة",
     "hero.cardTag":"Clear • Practical • Consistent",
     "hero.line1k":"التركيز", "hero.line1v":"Analytics → Data Science",
     "hero.line2k":"الأسلوب", "hero.line2v":"KPI-driven reporting",
-    "hero.line3k":"روابط", "hero.cv":"تحميل CV", "hero.more":"اللمحة",
+    "hero.line3k":"روابط", "hero.cv":"تحميل CV", "hero.more":"لمحة",
 
     "hl.title":"لمحة سريعة",
-    "hl.desc":"مختصر مفيد: أسلوبي في العمل، اهتمامي، والشيء اللي أقدمه.",
-    "hl.c1t":"Decision-first", "hl.c1d":"أبدأ من القرار، ثم KPI، ثم التحليل.",
-    "hl.c2t":"Clean execution", "hl.c2d":"تنظيم + توثيق + مخرجات واضحة.",
-    "hl.c3t":"Portfolio-ready", "hl.c3d":"أبني مشاريع قابلة للعرض، مو مجرد كلام.",
+    "hl.desc":"هنا أعطيك فكرة سريعة عن طريقتي بالشغل والنتائج اللي أركز عليها.",
+    "hl.c1t":"Decision-first", "hl.c1d":"أبدأ من الهدف، بعدها أحدد الـ KPI، ثم أشتغل على التحليل.",
+    "hl.c2t":"Clean execution", "hl.c2d":"شغل مرتب: تنظيم، توثيق، وخطوات واضحة.",
+    "hl.c3t":"Portfolio-ready", "hl.c3d":"أحب أطلع بنتيجة قابلة للعرض… مو بس كلام.",
 
     "work.title":"الأعمال",
-    "work.desc":"مختارات مشاريع — قريبًا بتنزل بتفاصيلها كاملة.",
-    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights لصُنّاع القرار.",
-    "work.p2t":"SQL Analytics Pack", "work.p2d":"استعلامات منظمة لتحليل واقعي.",
-    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + exports جاهزة أسبوعيًا.",
-    "work.soon":"Soon to be deployed!",
+    "work.desc":"هذه الأعمال اللي أشتغل عليها — قريبًا بتنزل بتفاصيل كاملة.",
+    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights designed for decision-makers.",
+    "work.p2t":"SQL Analytics Pack", "work.p2d":"A structured set of real analytics queries.",
+    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + export weekly-ready datasets.",
+    "work.soon":"قريبًا بتنزل جاهزة!",
     "work.repo":"Repo", "work.demo":"Preview",
 
     "contact.title":"تواصل",
-    "contact.desc":"ارسل رسالة — توصل مباشرة إلى البريد.",
+    "contact.desc":"إذا عندك سؤال أو فرصة تعاون — اكتب لي هنا.",
     "contact.name":"الاسم", "contact.email":"البريد", "contact.msg":"الرسالة", "contact.send":"إرسال",
-    "contact.connectTitle":"Connect", "contact.connectDesc":"تفضل الروابط الاجتماعية لو تبي.",
+    "contact.connectTitle":"Connect", "contact.connectDesc":"وتقدر بعد تزور حساباتي هنا.",
     "contact.top":"للأعلى ↑",
 
     "footer.highlights":"لمحة", "footer.work":"أعمال", "footer.contact":"تواصل",
 
     "toast.copied":"تم نسخ الإيميل ✅",
     "toast.sent":"تم الإرسال ✅",
-    "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا.",
-    "toast.themeDark":"الوضع الداكن 🌙",
-    "toast.themeLight":"الوضع الفاتح ☀️",
+    "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا."
   },
   en: {
     dir: "ltr", lang: "en", toggle: "العربية",
-    "brand.sub": "Portfolio",
+    "brand.sub":"Portfolio",
     "nav.home":"Home", "nav.highlights":"Highlights", "nav.work":"Work", "nav.contact":"Contact",
-    "nav.cv":"CV", "nav.theme":"Theme",
+    "nav.cv":"CV", "nav.menuLabel":"Menu",
 
     "hero.eyebrow":"DATA • EXECUTION • IMPACT",
     "hero.title":"Abdullah Alomran",
-    "hero.subtitle":"Execution-first and KPI-driven. I turn data into clear decisions using SQL and Power BI — and build portfolio-ready projects.",
+    "hero.subtitle":"I’m a Computer Science student who likes building useful things. I organize data, extract meaning, and present it clearly so decisions become easier.",
     "hero.cta1":"Work", "hero.cta2":"Contact", "hero.copy":"Copy email",
     "hero.badge":"Data Analytics",
     "hero.cardTitle":"Quick Glimpse",
@@ -84,32 +82,30 @@ const dict = {
     "hero.line3k":"Links", "hero.cv":"Download CV", "hero.more":"Highlights",
 
     "hl.title":"Highlights",
-    "hl.desc":"A quick snapshot of how Abdullah works and what he brings.",
-    "hl.c1t":"Decision-first", "hl.c1d":"Start from the decision, then the KPI.",
-    "hl.c2t":"Clean execution", "hl.c2d":"Structured work, clear docs, clean outputs.",
-    "hl.c3t":"Portfolio-ready", "hl.c3d":"Projects built to be shown — not just described.",
+    "hl.desc":"Here’s the quick version of how I work and what I care about.",
+    "hl.c1t":"Decision-first", "hl.c1d":"I start with the goal, define the KPI, then build the analysis around it.",
+    "hl.c2t":"Clean execution", "hl.c2d":"Organized workflow, clear documentation, and clean outputs.",
+    "hl.c3t":"Portfolio-ready", "hl.c3d":"I focus on results that are showable — not just talk.",
 
     "work.title":"Work",
-    "work.desc":"Selected projects — launching soon with full writeups.",
-    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights for decision-makers.",
+    "work.desc":"These are the projects I’m building — full writeups coming soon.",
+    "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights designed for decision-makers.",
     "work.p2t":"SQL Analytics Pack", "work.p2d":"A structured set of real analytics queries.",
     "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + weekly-ready exports.",
     "work.soon":"Soon to be deployed!",
     "work.repo":"Repo", "work.demo":"Preview",
 
     "contact.title":"Contact",
-    "contact.desc":"Send a message — it reaches my inbox.",
+    "contact.desc":"Got a question or a collaboration idea? Send me a message here.",
     "contact.name":"Name", "contact.email":"Email", "contact.msg":"Message", "contact.send":"Send",
-    "contact.connectTitle":"Connect", "contact.connectDesc":"Prefer social? Use the links below.",
+    "contact.connectTitle":"Connect", "contact.connectDesc":"You can also reach me through my profiles.",
     "contact.top":"Back to top ↑",
 
     "footer.highlights":"Highlights", "footer.work":"Work", "footer.contact":"Contact",
 
     "toast.copied":"Email copied ✅",
     "toast.sent":"Message sent ✅",
-    "toast.fail":"Couldn’t send right now. Try again later.",
-    "toast.themeDark":"Dark mode 🌙",
-    "toast.themeLight":"Light mode ☀️",
+    "toast.fail":"Couldn’t send right now. Try again later."
   }
 };
 
@@ -154,25 +150,6 @@ if (copyBtn){
     }
   });
 }
-
-/* Theme toggle */
-const themeBtn = document.getElementById("themeToggle");
-const themeMobile = document.getElementById("themeToggleMobile");
-const savedTheme = localStorage.getItem("abd_theme");
-if (savedTheme) document.body.setAttribute("data-theme", savedTheme);
-
-function setTheme(next){
-  if (next === "light") document.body.setAttribute("data-theme","light");
-  else document.body.removeAttribute("data-theme");
-  localStorage.setItem("abd_theme", next);
-  toast(next === "light" ? dict[current]["toast.themeLight"] : dict[current]["toast.themeDark"]);
-}
-function toggleTheme(){
-  const isLight = document.body.getAttribute("data-theme") === "light";
-  setTheme(isLight ? "dark" : "light");
-}
-if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
-if (themeMobile) themeMobile.addEventListener("click", toggleTheme);
 
 /* Back to top */
 const backToTop = document.getElementById("backToTop");
@@ -238,7 +215,6 @@ const status = document.getElementById("formStatus");
 if (form){
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const formData = new FormData(form);
 
     try{

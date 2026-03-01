@@ -12,10 +12,8 @@ function toast(msg){
   toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
 }
 
-/* Formspree */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzbyjdk";
 
-/* Language */
 const langBtn = document.getElementById("langToggle");
 const langMobile = document.getElementById("langToggleMobile");
 let current = "en";
@@ -26,7 +24,6 @@ const dict = {
     "brand.sub":"Portfolio",
     "nav.home":"الرئيسية", "nav.highlights":"لمحة", "nav.work":"أعمال", "nav.contact":"تواصل",
     "nav.cv":"CV", "nav.menuLabel":"القائمة",
-
     "hero.eyebrow":"DATA • EXECUTION • IMPACT",
     "hero.title":"عبدالله العمران",
     "hero.subtitle":"أنا طالب علوم حاسب أحب أبني أشياء مفيدة. أرتّب البيانات، أطلع منها معنى، وأعرضها بشكل واضح يساعد على اتخاذ قرار.",
@@ -37,13 +34,11 @@ const dict = {
     "hero.line1k":"التركيز", "hero.line1v":"Analytics → Data Science",
     "hero.line2k":"الأسلوب", "hero.line2v":"KPI-driven reporting",
     "hero.line3k":"روابط", "hero.cv":"تحميل CV", "hero.more":"لمحة",
-
     "hl.title":"لمحة سريعة",
     "hl.desc":"هنا أعطيك فكرة سريعة عن طريقتي بالشغل والنتائج اللي أركز عليها.",
     "hl.c1t":"Decision-first", "hl.c1d":"أبدأ من الهدف، بعدها أحدد الـ KPI، ثم أشتغل على التحليل.",
     "hl.c2t":"Clean execution", "hl.c2d":"شغل مرتب: تنظيم، توثيق، وخطوات واضحة.",
     "hl.c3t":"Portfolio-ready", "hl.c3d":"أحب أطلع بنتيجة قابلة للعرض… مو بس كلام.",
-
     "work.title":"الأعمال",
     "work.desc":"هذه الأعمال اللي أشتغل عليها — قريبًا بتنزل بتفاصيل كاملة.",
     "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights designed for decision-makers.",
@@ -51,15 +46,12 @@ const dict = {
     "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + weekly-ready exports.",
     "work.soon":"قريبًا بتنزل جاهزة!",
     "work.repo":"Repo", "work.demo":"Preview",
-
     "contact.title":"تواصل",
     "contact.desc":"إذا عندك سؤال أو فرصة تعاون — اكتب لي هنا.",
     "contact.name":"الاسم", "contact.email":"البريد", "contact.msg":"الرسالة", "contact.send":"إرسال",
     "contact.connectTitle":"Connect", "contact.connectDesc":"وتقدر بعد تزور حساباتي هنا.",
     "contact.top":"للأعلى ↑",
-
     "footer.highlights":"لمحة", "footer.work":"أعمال", "footer.contact":"تواصل",
-
     "toast.copied":"تم نسخ الإيميل ✅",
     "toast.sent":"تم الإرسال ✅",
     "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا."
@@ -69,7 +61,6 @@ const dict = {
     "brand.sub":"Portfolio",
     "nav.home":"Home", "nav.highlights":"Highlights", "nav.work":"Work", "nav.contact":"Contact",
     "nav.cv":"CV", "nav.menuLabel":"Menu",
-
     "hero.eyebrow":"DATA • EXECUTION • IMPACT",
     "hero.title":"Abdullah Alomran",
     "hero.subtitle":"I’m a Computer Science student who likes building useful things. I organize data, extract meaning, and present it clearly so decisions become easier.",
@@ -80,13 +71,11 @@ const dict = {
     "hero.line1k":"Focus", "hero.line1v":"Analytics → Data Science",
     "hero.line2k":"Style", "hero.line2v":"KPI-driven reporting",
     "hero.line3k":"Links", "hero.cv":"Download CV", "hero.more":"Highlights",
-
     "hl.title":"Highlights",
     "hl.desc":"Here’s the quick version of how I work and what I care about.",
     "hl.c1t":"Decision-first", "hl.c1d":"I start with the goal, define the KPI, then build the analysis around it.",
     "hl.c2t":"Clean execution", "hl.c2d":"Organized workflow, clear documentation, and clean outputs.",
     "hl.c3t":"Portfolio-ready", "hl.c3d":"I focus on results that are showable — not just talk.",
-
     "work.title":"Work",
     "work.desc":"These are the projects I’m building — full writeups coming soon.",
     "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights designed for decision-makers.",
@@ -94,15 +83,12 @@ const dict = {
     "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + weekly-ready exports.",
     "work.soon":"Soon to be deployed!",
     "work.repo":"Repo", "work.demo":"Preview",
-
     "contact.title":"Contact",
     "contact.desc":"Got a question or a collaboration idea? Send me a message here.",
     "contact.name":"Name", "contact.email":"Email", "contact.msg":"Message", "contact.send":"Send",
     "contact.connectTitle":"Connect", "contact.connectDesc":"You can also reach me through my profiles.",
     "contact.top":"Back to top ↑",
-
     "footer.highlights":"Highlights", "footer.work":"Work", "footer.contact":"Contact",
-
     "toast.copied":"Email copied ✅",
     "toast.sent":"Message sent ✅",
     "toast.fail":"Couldn’t send right now. Try again later."
@@ -130,6 +116,11 @@ function toggleLanguage(){
 if (langBtn) langBtn.addEventListener("click", toggleLanguage);
 if (langMobile) langMobile.addEventListener("click", toggleLanguage);
 applyLanguage(current);
+
+/* remove focus after click (prevents weird hover/focus look) */
+document.querySelectorAll('.nav__link').forEach(a => {
+  a.addEventListener('click', () => a.blur());
+});
 
 /* Copy email */
 const copyBtn = document.getElementById("copyEmailBtn");
@@ -196,7 +187,7 @@ function setActive(id){
   navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === id));
 }
 
-/* Force Home active near top (fixes Highlights being selected on load) */
+/* Force Home active near top */
 function enforceHomeIfTop(){
   if (window.scrollY < 120) setActive("home");
 }
@@ -204,7 +195,6 @@ window.addEventListener("scroll", enforceHomeIfTop, { passive: true });
 window.addEventListener("load", enforceHomeIfTop);
 
 const spy = new IntersectionObserver((entries)=>{
-  // If near top, always keep home active
   if (window.scrollY < 120){
     setActive("home");
     return;

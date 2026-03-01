@@ -12,17 +12,17 @@ function toast(msg){
   toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
 }
 
-/* ✅ Formspree endpoint */
+/* Formspree */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzbyjdk";
 
 /* Language */
 const langBtn = document.getElementById("langToggle");
 const langMobile = document.getElementById("langToggleMobile");
-let current = "en"; // start in English (your screenshots show English)
+let current = "en";
 
 const dict = {
   ar: {
-    dir: "rtl", lang: "ar", toggle: "English",
+    dir:"rtl", lang:"ar", toggle:"English",
     "brand.sub":"Portfolio",
     "nav.home":"الرئيسية", "nav.highlights":"لمحة", "nav.work":"أعمال", "nav.contact":"تواصل",
     "nav.cv":"CV", "nav.menuLabel":"القائمة",
@@ -48,7 +48,7 @@ const dict = {
     "work.desc":"هذه الأعمال اللي أشتغل عليها — قريبًا بتنزل بتفاصيل كاملة.",
     "work.p1t":"Executive Dashboard", "work.p1d":"KPIs + insights designed for decision-makers.",
     "work.p2t":"SQL Analytics Pack", "work.p2d":"A structured set of real analytics queries.",
-    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + export weekly-ready datasets.",
+    "work.p3t":"Data Cleaning Pipeline", "work.p3d":"Quality checks + weekly-ready exports.",
     "work.soon":"قريبًا بتنزل جاهزة!",
     "work.repo":"Repo", "work.demo":"Preview",
 
@@ -65,7 +65,7 @@ const dict = {
     "toast.fail":"تعذر الإرسال الآن — جرّب لاحقًا."
   },
   en: {
-    dir: "ltr", lang: "en", toggle: "العربية",
+    dir:"ltr", lang:"en", toggle:"العربية",
     "brand.sub":"Portfolio",
     "nav.home":"Home", "nav.highlights":"Highlights", "nav.work":"Work", "nav.contact":"Contact",
     "nav.cv":"CV", "nav.menuLabel":"Menu",
@@ -191,10 +191,24 @@ reveals.forEach(el=> io.observe(el));
 /* Scroll spy */
 const sectionIds = ["home","highlights","work","contact"];
 const navLinks = document.querySelectorAll(".nav__link");
+
 function setActive(id){
   navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === id));
 }
+
+/* Force Home active near top (fixes Highlights being selected on load) */
+function enforceHomeIfTop(){
+  if (window.scrollY < 120) setActive("home");
+}
+window.addEventListener("scroll", enforceHomeIfTop, { passive: true });
+window.addEventListener("load", enforceHomeIfTop);
+
 const spy = new IntersectionObserver((entries)=>{
+  // If near top, always keep home active
+  if (window.scrollY < 120){
+    setActive("home");
+    return;
+  }
   let best = null;
   for (const ent of entries){
     if(ent.isIntersecting){
@@ -203,6 +217,7 @@ const spy = new IntersectionObserver((entries)=>{
   }
   if(best) setActive(best.target.id);
 },{threshold:[0.25,0.35,0.5,0.65]});
+
 sectionIds.forEach(id=>{
   const el = document.getElementById(id);
   if(el) spy.observe(el);

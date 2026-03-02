@@ -187,31 +187,24 @@ function setActive(id){
   navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === id));
 }
 
-/* Force Home active near top */
-function enforceHomeIfTop(){
-  if (window.scrollY < 120) setActive("home");
-}
-window.addEventListener("scroll", enforceHomeIfTop, { passive: true });
-window.addEventListener("load", enforceHomeIfTop);
+function updateActiveNav(){
+  // Use the midpoint of the viewport as the trigger line
+  const mid = window.scrollY + window.innerHeight / 2;
 
-const spy = new IntersectionObserver((entries)=>{
-  if (window.scrollY < 120){
-    setActive("home");
-    return;
-  }
-  let best = null;
-  for (const ent of entries){
-    if(ent.isIntersecting){
-      if(!best || ent.intersectionRatio > best.intersectionRatio) best = ent;
+  let activeId = sectionIds[0];
+  for (const id of sectionIds){
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top + window.scrollY <= mid){
+      activeId = id;
     }
   }
-  if(best) setActive(best.target.id);
-},{threshold:[0.25,0.35,0.5,0.65]});
+  setActive(activeId);
+}
 
-sectionIds.forEach(id=>{
-  const el = document.getElementById(id);
-  if(el) spy.observe(el);
-});
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+window.addEventListener("resize", updateActiveNav, { passive: true });
+window.addEventListener("load", updateActiveNav);
+updateActiveNav();
 
 /* Contact form -> Formspree */
 const form = document.getElementById("contactForm");

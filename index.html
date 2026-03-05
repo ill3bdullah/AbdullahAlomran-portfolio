@@ -4,8 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abdullah Alomran | Portfolio</title>
-  <meta name="description" content="Abdullah Alomran — A clean, dark modern portfolio glimpse: data-driven mindset, execution, and projects." />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Abdullah Alomran — CS student building useful things with data." />
+  <meta name="theme-color" content="#0c111c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -15,22 +18,24 @@
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="logo" href="#home" aria-label="Home">
-        Abdullah Alomran <span class="sep">|</span> <span class="muted" data-i18n="brand.sub">Portfolio</span>
+        <span class="logo__name">Abdullah Alomran</span><span class="logo__sep" aria-hidden="true">/</span><span class="logo__sub" data-i18n="brand.sub">Portfolio</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#home" class="nav__link active" data-section="home" data-i18n="nav.home">Home</a>
+        <a href="#home"       class="nav__link" data-section="home"       data-i18n="nav.home">Home</a>
         <a href="#highlights" class="nav__link" data-section="highlights" data-i18n="nav.highlights">Highlights</a>
-        <a href="#work" class="nav__link" data-section="work" data-i18n="nav.work">Work</a>
-        <a href="#contact" class="nav__link" data-section="contact" data-i18n="nav.contact">Contact</a>
+        <a href="#work"       class="nav__link" data-section="work"       data-i18n="nav.work">Work</a>
+        <a href="#contact"    class="nav__link" data-section="contact"    data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="header__actions">
         <div class="desktop-actions">
-          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
-          <button class="btn btn--primary" id="langToggle" type="button">العربية</button>
+          <a class="btn btn--ghost btn--sm" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
+          <button class="btn btn--outline btn--sm lang-btn" id="langToggle" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-label">العربية</span>
+          </button>
         </div>
-
         <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -39,20 +44,22 @@
 
     <div class="mobile" id="mobileMenu" aria-hidden="true">
       <div class="container mobile__inner">
-        <div class="mobile-actions">
-          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
-          <button class="btn btn--primary" id="langToggleMobile" type="button">العربية</button>
-          <span class="menu-label" data-i18n="nav.menuLabel">Menu</span>
+        <div class="mobile__top-row">
+          <a class="btn btn--ghost btn--sm" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="nav.cv">CV</a>
+          <button class="btn btn--outline btn--sm lang-btn" id="langToggleMobile" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-label">العربية</span>
+          </button>
         </div>
-
-        <a href="#home" class="mobile__link" data-i18n="nav.home">Home</a>
-        <a href="#highlights" class="mobile__link" data-i18n="nav.highlights">Highlights</a>
-        <a href="#work" class="mobile__link" data-i18n="nav.work">Work</a>
-        <a href="#contact" class="mobile__link" data-i18n="nav.contact">Contact</a>
-
-        <div class="mobile__row">
-          <a class="btn btn--ghost" href="https://github.com/ill3bdullah" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn btn--ghost" href="https://linkedin.com/in/iabdullahalomran" target="_blank" rel="noreferrer">LinkedIn</a>
+        <div class="mobile__links">
+          <a href="#home"       class="mobile__link" data-i18n="nav.home">Home</a>
+          <a href="#highlights" class="mobile__link" data-i18n="nav.highlights">Highlights</a>
+          <a href="#work"       class="mobile__link" data-i18n="nav.work">Work</a>
+          <a href="#contact"    class="mobile__link" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="mobile__social">
+          <a class="btn btn--ghost btn--sm" href="https://github.com/ill3bdullah" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn--ghost btn--sm" href="https://linkedin.com/in/iabdullahalomran" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -60,33 +67,34 @@
 
   <!-- HERO -->
   <main id="home" class="hero section">
-    <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-canvas" aria-hidden="true">
       <span class="orb orb--1"></span>
       <span class="orb orb--2"></span>
       <span class="orb orb--3"></span>
-      <span class="orb orb--4"></span>
     </div>
 
     <div class="container hero__grid">
       <section class="hero__text reveal">
-        <p class="eyebrow" data-i18n="hero.eyebrow">DATA • EXECUTION • IMPACT</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Data · Execution · Impact</p>
 
-        <h1 class="hero__title" data-i18n="hero.title">Abdullah Alomran</h1>
+        <h1 class="hero__title">
+          <span class="hero__title--main" data-i18n="hero.title">Abdullah<br>Alomran</span>
+        </h1>
 
         <p class="hero__subtitle" data-i18n="hero.subtitle">
-          I’m a Computer Science student who likes building useful things. I organize data, extract meaning, and present it clearly so decisions become easier.
+          CS student. I build things with data — clean queries, clear dashboards, pipelines that actually work. Less talk, more output.
         </p>
 
         <div class="hero__cta">
-          <a class="btn btn--primary" href="#work" data-i18n="hero.cta1">Work</a>
-          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta2">Contact</a>
-          <button class="btn btn--ghost" id="copyEmailBtn" type="button">
-            <span class="icon" aria-hidden="true">📋</span>
+          <a class="btn btn--primary" href="#work" data-i18n="hero.cta1">See my work</a>
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta2">Get in touch</a>
+          <button class="btn btn--ghost copy-btn" id="copyEmailBtn" type="button" aria-label="Copy email address">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             <span data-i18n="hero.copy">Copy email</span>
           </button>
         </div>
 
-        <div class="chips" aria-label="Highlights">
+        <div class="chips" aria-label="Skills">
           <span class="chip chip--a">SQL</span>
           <span class="chip chip--b">MySQL</span>
           <span class="chip chip--c">Power BI</span>
@@ -98,10 +106,7 @@
 
       <aside class="hero__card reveal">
         <div class="card card--glow">
-          <div class="card__top">
-            <h3 data-i18n="hero.cardTitle">Quick Glimpse</h3>
-            <span class="badge" data-i18n="hero.cardTag">Clear • Practical • Consistent</span>
-          </div>
+          <div class="card__label" data-i18n="hero.cardTitle">Quick Glimpse</div>
 
           <div class="mini-stack">
             <div class="mini-line">
@@ -110,21 +115,23 @@
             </div>
             <div class="mini-line">
               <span class="mini-k" data-i18n="hero.line2k">Style</span>
-              <span class="mini-v" data-i18n="hero.line2v">KPI-driven reporting</span>
+              <span class="mini-v" data-i18n="hero.line2v">KPI-driven, clean outputs</span>
             </div>
             <div class="mini-line">
               <span class="mini-k" data-i18n="hero.line3k">Links</span>
-              <span class="mini-v">
+              <span class="mini-v links-val">
                 <a class="link" target="_blank" rel="noreferrer" href="https://github.com/ill3bdullah">GitHub</a>
-                <span class="dot">•</span>
+                <span class="dot" aria-hidden="true">·</span>
                 <a class="link" target="_blank" rel="noreferrer" href="https://linkedin.com/in/iabdullahalomran">LinkedIn</a>
               </span>
             </div>
           </div>
 
+          <div class="card__tag" data-i18n="hero.cardTag">Clear · Practical · Consistent</div>
+
           <div class="card__footer">
-            <a class="btn btn--tiny btn--ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="hero.cv">Download CV</a>
-            <a class="btn btn--tiny btn--primary" href="#highlights" data-i18n="hero.more">Highlights</a>
+            <a class="btn btn--ghost btn--sm" href="assets/cv.pdf" target="_blank" rel="noreferrer" data-i18n="hero.cv">Download CV</a>
+            <a class="btn btn--primary btn--sm" href="#highlights" data-i18n="hero.more">Highlights →</a>
           </div>
         </div>
       </aside>
@@ -136,28 +143,24 @@
     <div class="container">
       <div class="section__head reveal">
         <h2 data-i18n="hl.title">Highlights</h2>
-        <p class="section__desc" data-i18n="hl.desc">
-          Here’s the quick version of how I work and what I care about.
-        </p>
+        <p class="section__desc" data-i18n="hl.desc">How I work, in three points.</p>
       </div>
 
       <div class="hl-grid">
-        <div class="card reveal hl-card">
-          <div class="hl-icon">🎯</div>
-          <h3 data-i18n="hl.c1t">Decision-first</h3>
-          <p class="muted" data-i18n="hl.c1d">I start with the goal, define the KPI, then build the analysis around it.</p>
+        <div class="hl-card reveal">
+          <div class="hl-num" aria-hidden="true">01</div>
+          <h3 data-i18n="hl.c1t">Goal first</h3>
+          <p data-i18n="hl.c1d">I start with the question, not the data. What decision does this analysis serve? That shapes everything.</p>
         </div>
-
-        <div class="card reveal hl-card">
-          <div class="hl-icon">🧩</div>
-          <h3 data-i18n="hl.c2t">Clean execution</h3>
-          <p class="muted" data-i18n="hl.c2d">Organized workflow, clear documentation, and clean outputs.</p>
+        <div class="hl-card reveal">
+          <div class="hl-num" aria-hidden="true">02</div>
+          <h3 data-i18n="hl.c2t">Clean work</h3>
+          <p data-i18n="hl.c2d">Organized folders, documented queries, reproducible steps. I build things other people can actually read.</p>
         </div>
-
-        <div class="card reveal hl-card">
-          <div class="hl-icon">✨</div>
-          <h3 data-i18n="hl.c3t">Portfolio-ready</h3>
-          <p class="muted" data-i18n="hl.c3d">I focus on results that are showable — not just talk.</p>
+        <div class="hl-card reveal">
+          <div class="hl-num" aria-hidden="true">03</div>
+          <h3 data-i18n="hl.c3t">Showable output</h3>
+          <p data-i18n="hl.c3d">Every project ends with something concrete — a dashboard, a notebook, a working pipeline. Not just a description.</p>
         </div>
       </div>
     </div>
@@ -168,71 +171,74 @@
     <div class="container">
       <div class="section__head reveal">
         <h2 data-i18n="work.title">Work</h2>
-        <p class="section__desc" data-i18n="work.desc">
-          These are the projects I’m building — full writeups coming soon.
-        </p>
+        <p class="section__desc" data-i18n="work.desc">Three projects in progress. Details coming soon.</p>
       </div>
 
       <div class="work-grid">
+
         <article class="work-card reveal">
-          <div class="work-top">
+          <header class="work-card__head">
             <div class="work-tags">
               <span class="pill pill--a">E-commerce</span>
               <span class="pill pill--b">MySQL</span>
               <span class="pill pill--c">Power BI</span>
             </div>
-            <div class="work-badge">Featured</div>
-          </div>
+            <span class="work-badge">Featured</span>
+          </header>
           <h3 data-i18n="work.p1t">Executive Dashboard</h3>
-          <p class="muted" data-i18n="work.p1d">KPIs + insights designed for decision-makers.</p>
-
-          <div class="soon" data-i18n="work.soon">Soon to be deployed!</div>
-
+          <p data-i18n="work.p1d">KPIs and actionable insights built for decision-makers, not analysts.</p>
+          <div class="soon-banner">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="work.soon">Deploying soon</span>
+          </div>
           <div class="actions-row">
-            <a class="btn btn--ghost btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.repo">Repo</a>
-            <a class="btn btn--primary btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.demo">Preview</a>
+            <a class="btn btn--ghost btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.repo">Repo</a>
+            <a class="btn btn--primary btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.demo">Preview</a>
           </div>
         </article>
 
         <article class="work-card reveal">
-          <div class="work-top">
+          <header class="work-card__head">
             <div class="work-tags">
               <span class="pill pill--d">SQL</span>
               <span class="pill pill--e">Analytics</span>
-              <span class="pill pill--f">Windows</span>
+              <span class="pill pill--f">Window Fns</span>
             </div>
-            <div class="work-badge work-badge--alt">Case Pack</div>
-          </div>
+            <span class="work-badge work-badge--alt">Case Pack</span>
+          </header>
           <h3 data-i18n="work.p2t">SQL Analytics Pack</h3>
-          <p class="muted" data-i18n="work.p2d">A structured set of real analytics queries.</p>
-
-          <div class="soon" data-i18n="work.soon">Soon to be deployed!</div>
-
+          <p data-i18n="work.p2d">A structured set of real queries — aggregations, CTEs, window functions on actual datasets.</p>
+          <div class="soon-banner">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="work.soon">Deploying soon</span>
+          </div>
           <div class="actions-row">
-            <a class="btn btn--ghost btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.repo">Repo</a>
-            <a class="btn btn--primary btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.demo">Preview</a>
+            <a class="btn btn--ghost btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.repo">Repo</a>
+            <a class="btn btn--primary btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.demo">Preview</a>
           </div>
         </article>
 
         <article class="work-card reveal">
-          <div class="work-top">
+          <header class="work-card__head">
             <div class="work-tags">
-              <span class="pill pill--g">Automation</span>
-              <span class="pill pill--h">Python</span>
-              <span class="pill pill--i">pandas</span>
+              <span class="pill pill--g">Python</span>
+              <span class="pill pill--h">pandas</span>
+              <span class="pill pill--i">Automation</span>
             </div>
-            <div class="work-badge work-badge--green">Pipeline</div>
-          </div>
+            <span class="work-badge work-badge--green">Pipeline</span>
+          </header>
           <h3 data-i18n="work.p3t">Data Cleaning Pipeline</h3>
-          <p class="muted" data-i18n="work.p3d">Quality checks + weekly-ready exports.</p>
-
-          <div class="soon" data-i18n="work.soon">Soon to be deployed!</div>
-
+          <p data-i18n="work.p3d">Automated quality checks and weekly-ready exports. Built to run without hand-holding.</p>
+          <div class="soon-banner">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="work.soon">Deploying soon</span>
+          </div>
           <div class="actions-row">
-            <a class="btn btn--ghost btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.repo">Repo</a>
-            <a class="btn btn--primary btn--tiny btn--disabled" href="#" aria-disabled="true" data-i18n="work.demo">Preview</a>
+            <a class="btn btn--ghost btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.repo">Repo</a>
+            <a class="btn btn--primary btn--sm btn--disabled" href="#" tabindex="-1" aria-disabled="true" data-i18n="work.demo">Preview</a>
           </div>
         </article>
+
       </div>
     </div>
   </section>
@@ -242,42 +248,52 @@
     <div class="container">
       <div class="section__head reveal">
         <h2 data-i18n="contact.title">Contact</h2>
-        <p class="section__desc" data-i18n="contact.desc">Got a question or a collaboration idea? Send me a message here.</p>
+        <p class="section__desc" data-i18n="contact.desc">A question or a collaboration idea — just send me a message.</p>
       </div>
 
       <div class="contact-grid">
-        <form class="form reveal" id="contactForm">
-          <input type="hidden" name="_subject" value="New message from Abdullah Portfolio" />
+        <form class="form reveal" id="contactForm" novalidate>
+          <input type="hidden" name="_subject" value="Portfolio message" />
 
           <div class="form__row">
-            <label data-i18n="contact.name">Name</label>
-            <input required name="name" type="text" placeholder="Your name" />
+            <label for="f-name" data-i18n="contact.name">Name</label>
+            <input id="f-name" required name="name" type="text" autocomplete="name" placeholder="Your name" />
           </div>
-
           <div class="form__row">
-            <label data-i18n="contact.email">Email</label>
-            <input required name="email" type="email" placeholder="name@email.com" />
+            <label for="f-email" data-i18n="contact.email">Email</label>
+            <input id="f-email" required name="email" type="email" autocomplete="email" placeholder="name@email.com" />
           </div>
-
           <div class="form__row">
-            <label data-i18n="contact.msg">Message</label>
-            <textarea required name="message" rows="5" placeholder="Write your message..."></textarea>
+            <label for="f-msg" data-i18n="contact.msg">Message</label>
+            <textarea id="f-msg" required name="message" rows="5" placeholder="What's on your mind?"></textarea>
           </div>
 
-          <button class="btn btn--primary" type="submit" data-i18n="contact.send">Send</button>
-          <p class="muted small" id="formStatus"></p>
+          <div class="form__footer">
+            <button class="btn btn--primary" type="submit" data-i18n="contact.send">Send</button>
+            <p class="form__status muted small" id="formStatus" aria-live="polite"></p>
+          </div>
         </form>
 
-        <div class="card contact-card reveal">
-          <h3 data-i18n="contact.connectTitle">Connect</h3>
-          <p class="muted" data-i18n="contact.connectDesc">You can also reach me through my profiles.</p>
-
-          <div class="divider"></div>
-
-          <div class="social-row">
-            <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://linkedin.com/in/iabdullahalomran">LinkedIn</a>
-            <a class="btn btn--ghost" target="_blank" rel="noreferrer" href="https://github.com/ill3bdullah">GitHub</a>
-            <button class="btn btn--ghost" id="backToTop" type="button" data-i18n="contact.top">Back to top ↑</button>
+        <div class="contact-info reveal">
+          <div class="card contact-card">
+            <h3 data-i18n="contact.connectTitle">Connect</h3>
+            <p class="muted" data-i18n="contact.connectDesc">Or find me on any of these platforms.</p>
+            <div class="divider" role="separator"></div>
+            <div class="social-row">
+              <a class="btn btn--ghost btn--sm" target="_blank" rel="noreferrer" href="https://linkedin.com/in/iabdullahalomran">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+              <a class="btn btn--ghost btn--sm" target="_blank" rel="noreferrer" href="https://github.com/ill3bdullah">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub
+              </a>
+            </div>
+            <div class="divider" role="separator"></div>
+            <button class="btn btn--ghost btn--sm back-top" id="backToTop" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+              <span data-i18n="contact.top">Back to top</span>
+            </button>
           </div>
         </div>
       </div>
@@ -286,20 +302,22 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>
-        <div class="footer__brand">Abdullah Alomran <span class="sep">|</span> <span class="muted" data-i18n="brand.sub">Portfolio</span></div>
-        <div class="muted small">© <span id="year"></span></div>
+      <div class="footer__brand">
+        Abdullah Alomran
+        <span class="footer__sep" aria-hidden="true">/</span>
+        <span class="muted" data-i18n="brand.sub">Portfolio</span>
+        <span class="footer__copy muted small">© <span id="year"></span></span>
       </div>
 
-      <div class="footer__links">
+      <nav class="footer__links" aria-label="Footer">
         <a href="#highlights" data-i18n="footer.highlights">Highlights</a>
-        <a href="#work" data-i18n="footer.work">Work</a>
-        <a href="#contact" data-i18n="footer.contact">Contact</a>
-      </div>
+        <a href="#work"       data-i18n="footer.work">Work</a>
+        <a href="#contact"    data-i18n="footer.contact">Contact</a>
+      </nav>
 
       <div class="footer__social">
         <a class="link" target="_blank" rel="noreferrer" href="https://linkedin.com/in/iabdullahalomran">LinkedIn</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">·</span>
         <a class="link" target="_blank" rel="noreferrer" href="https://github.com/ill3bdullah">GitHub</a>
       </div>
     </div>

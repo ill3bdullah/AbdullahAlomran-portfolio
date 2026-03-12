@@ -15,6 +15,42 @@ function toast(msg) {
   toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2400);
 }
 
+/* ── Theme ────────────────────────────────────────────────── */
+const STORAGE_THEME = "ab-theme";
+const root = document.documentElement;
+const themeColorMeta = document.getElementById("themeColor");
+
+const THEME_META = {
+  dark:  "#0c111c",
+  light: "#faf8f4"
+};
+
+function applyTheme(theme, save = true) {
+  root.setAttribute("data-theme", theme);
+  if (themeColorMeta) themeColorMeta.setAttribute("content", THEME_META[theme]);
+  if (save) localStorage.setItem(STORAGE_THEME, theme);
+
+  // Update aria-labels on all toggle buttons
+  document.querySelectorAll(".theme-toggle").forEach(btn => {
+    btn.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  });
+}
+
+function toggleTheme() {
+  const current = root.getAttribute("data-theme") || "dark";
+  applyTheme(current === "dark" ? "light" : "dark");
+}
+
+// Load saved preference, fallback to dark
+const savedTheme = localStorage.getItem(STORAGE_THEME);
+applyTheme(savedTheme === "light" ? "light" : "dark", false);
+
+document.getElementById("themeToggle")      ?.addEventListener("click", toggleTheme);
+document.getElementById("themeToggleMobile")?.addEventListener("click", toggleTheme);
+
 /* ── i18n ─────────────────────────────────────────────────── */
 const FORMSPREE = "https://formspree.io/f/mvzbyjdk";
 let currentLang = "en";
@@ -142,16 +178,9 @@ const dict = {
 
 function applyLanguage(code) {
   const t = dict[code];
-  const root = document.documentElement;
   root.lang = t.lang;
   root.dir  = t.dir;
-
-  // Update all toggle button labels
-  document.querySelectorAll(".lang-label").forEach(el => {
-    el.textContent = t.toggle;
-  });
-
-  // Translate all i18n elements
+  document.querySelectorAll(".lang-label").forEach(el => { el.textContent = t.toggle; });
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (t[key] !== undefined) el.textContent = t[key];
@@ -204,25 +233,20 @@ if (burger && mobileMenu) {
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobile(); });
 }
 
-/* ── Scroll spy — clean, no bleed ────────────────────────── */
+/* ── Scroll spy ───────────────────────────────────────────── */
 const SECTION_IDS = ["home", "highlights", "work", "contact"];
 const navLinks    = document.querySelectorAll(".nav__link");
 
 function setActiveNav(id) {
-  navLinks.forEach(a =>
-    a.classList.toggle("active", a.dataset.section === id)
-  );
+  navLinks.forEach(a => a.classList.toggle("active", a.dataset.section === id));
 }
 
 function computeActiveSection() {
-  // Trigger line = 40% down the viewport
   const trigger = window.scrollY + window.innerHeight * 0.4;
   let active = SECTION_IDS[0];
   for (const id of SECTION_IDS) {
     const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top + window.scrollY <= trigger) {
-      active = id;
-    }
+    if (el && el.getBoundingClientRect().top + window.scrollY <= trigger) active = id;
   }
   return active;
 }
@@ -233,21 +257,15 @@ window.addEventListener("scroll", updateNav, { passive: true });
 window.addEventListener("resize", updateNav, { passive: true });
 window.addEventListener("load",   updateNav);
 updateNav();
-
-// Remove lingering focus ring after click (keeps hover states clean)
 navLinks.forEach(a => a.addEventListener("click", () => a.blur()));
 
 /* ── Reveal on scroll ─────────────────────────────────────── */
 const revealEls = document.querySelectorAll(".reveal");
 const revealIO  = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add("in");
-      revealIO.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); }
   });
 }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-
 revealEls.forEach(el => revealIO.observe(el));
 
 /* ── Contact form → Formspree ─────────────────────────────── */
@@ -266,14 +284,11 @@ if (form) {
         headers: { "Accept": "application/json" },
         body: new FormData(form)
       });
-
       if (res.ok) {
         toast(dict[currentLang]["toast.sent"]);
         if (formStatus) formStatus.textContent = dict[currentLang]["toast.sent"];
         form.reset();
-      } else {
-        throw new Error("non-ok");
-      }
+      } else { throw new Error("non-ok"); }
     } catch {
       toast(dict[currentLang]["toast.fail"]);
       if (formStatus) formStatus.textContent = dict[currentLang]["toast.fail"];

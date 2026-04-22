@@ -52,8 +52,9 @@ document.getElementById("themeToggle")      ?.addEventListener("click", toggleTh
 document.getElementById("themeToggleMobile")?.addEventListener("click", toggleTheme);
 
 /* ── i18n ─────────────────────────────────────────────────── */
-const FORMSPREE = "https://formspree.io/f/mvzbyjdk";
-let currentLang = "en";
+const FORMSPREE   = "https://formspree.io/f/mvzbyjdk";
+const STORAGE_LANG = "ab-lang";
+let currentLang = localStorage.getItem(STORAGE_LANG) === "ar" ? "ar" : "en";
 
 const dict = {
   ar: {
@@ -189,6 +190,7 @@ function applyLanguage(code) {
 
 function toggleLanguage() {
   currentLang = currentLang === "ar" ? "en" : "ar";
+  localStorage.setItem(STORAGE_LANG, currentLang);
   applyLanguage(currentLang);
 }
 
@@ -201,11 +203,10 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", async () => {
   const email = "abdullahalomran97@gmail.com";
   try {
     await navigator.clipboard.writeText(email);
+    toast(dict[currentLang]["toast.copied"]);
   } catch {
-    const tmp = Object.assign(document.createElement("textarea"), { value: email });
-    document.body.appendChild(tmp); tmp.select(); document.execCommand("copy"); tmp.remove();
+    toast(`📋 ${email}`);
   }
-  toast(dict[currentLang]["toast.copied"]);
 });
 
 /* ── Back to top ──────────────────────────────────────────── */
@@ -241,21 +242,31 @@ function setActiveNav(id) {
   navLinks.forEach(a => a.classList.toggle("active", a.dataset.section === id));
 }
 
+let sectionTops = {};
+function cacheSectionTops() {
+  sectionTops = Object.fromEntries(
+    SECTION_IDS.map(id => {
+      const el = document.getElementById(id);
+      return [id, el ? el.offsetTop : 0];
+    })
+  );
+}
+
 function computeActiveSection() {
   const trigger = window.scrollY + window.innerHeight * 0.4;
   let active = SECTION_IDS[0];
   for (const id of SECTION_IDS) {
-    const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top + window.scrollY <= trigger) active = id;
+    if (sectionTops[id] <= trigger) active = id;
   }
   return active;
 }
 
 function updateNav() { setActiveNav(computeActiveSection()); }
 
+cacheSectionTops();
 window.addEventListener("scroll", updateNav, { passive: true });
-window.addEventListener("resize", updateNav, { passive: true });
-window.addEventListener("load",   updateNav);
+window.addEventListener("resize", () => { cacheSectionTops(); updateNav(); }, { passive: true });
+window.addEventListener("load",   () => { cacheSectionTops(); updateNav(); });
 updateNav();
 navLinks.forEach(a => a.addEventListener("click", () => a.blur()));
 
@@ -286,12 +297,13 @@ if (form) {
       });
       if (res.ok) {
         toast(dict[currentLang]["toast.sent"]);
-        if (formStatus) formStatus.textContent = dict[currentLang]["toast.sent"];
+        if (formStatus) formStatus.textContent = "";
         form.reset();
       } else { throw new Error("non-ok"); }
     } catch {
-      toast(dict[currentLang]["toast.fail"]);
-      if (formStatus) formStatus.textContent = dict[currentLang]["toast.fail"];
+      const failMsg = dict[currentLang]["toast.fail"];
+      toast(failMsg);
+      if (formStatus) formStatus.textContent = failMsg;
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
